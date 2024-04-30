@@ -156,7 +156,8 @@ section {
     font-family: monospace;
     font-size: 3em;
     opacity: 0.5;
-    color: grey;
+    color: #04D9FF;
+    box-shadow: 0 0 20px 20px #04D9FF;
 }
 
 #home-secondary h1 {

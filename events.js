@@ -16,6 +16,7 @@ function fetchHTMLSourceCode() {
                 displaySourceCode(sourceCode);
             } else {
                 console.error('Error fetching HTML source code:', httpRequest.status);
+                displayError();
             }
         }
     };
@@ -28,6 +29,15 @@ function displaySourceCode(html) {
     const sourceCodeElement = document.getElementById('source-code');
     sourceCodeElement.textContent = html;
 }
+
+// For the local editing process, so that it looks better for the while
+function displayError() {
+    const background = document.getElementById('home-secondary');
+    const codebg = document.getElementById('code-bg');
+    background.style.setProperty('background-image', "url('https://media.istockphoto.com/id/1047259374/photo/programming-source-code-abstract-background.jpg?s=612x612&w=0&k=20&c=07DAFiujCb58Zgu5ZArLprHiSKew5pCGqbTnop9GclA=')");
+    codebg.parentNode.removeChild(codebg);
+}
+
 
 // Fetch and display the HTML source code when the page loads
 window.onload = function() {
