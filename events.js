@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     const flashlight = document.querySelector('#home-secondary');
     let targetX = window.innerWidth / 2;
     let targetY = window.innerHeight / 2;
@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let currentY = targetY;
     const speed = 0.05; // Adjust this value to change the speed (0.1 = slower, 1 = instant)
 
-    document.addEventListener('mousemove', function(event) {
+    document.addEventListener('mousemove', (event) => {
         targetX = event.clientX;
         targetY = event.clientY;
     });
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Function to fetch the HTML source code of the current page
     function fetchHTMLSourceCode() {
         const httpRequest = new XMLHttpRequest();
-        httpRequest.onreadystatechange = function() {
+        httpRequest.onreadystatechange = function () {
             if (httpRequest.readyState === XMLHttpRequest.DONE) {
                 if (httpRequest.status === 200) {
                     const sourceCode = httpRequest.responseText;
@@ -61,4 +61,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Fetch and display the HTML source code when the page loads
     fetchHTMLSourceCode();
+
+    // Toggle navigation visibility on mobile
+    window.toggleNav = function () {
+        const navList = document.getElementById('nav-list');
+        navList.classList.toggle('visible');
+    };
 });

@@ -30,7 +30,6 @@
   50% { border-color: black; }
 }
 
-
 /* Reset CSS */
 * {
     margin: 0;
@@ -45,10 +44,10 @@ html {
 body {
     /* Prevent user from clicking */
     user-select: none;
-    -webkit-user-select:none;
-    -webkit-touch-callout:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 
     /* Remove scrollbar */
     -ms-overflow-style: none;
@@ -64,7 +63,11 @@ body {
     
     /* Website on-load fade-in animation */
     animation: 2s ease-out 0s 1 fadeIn;
-} body::-webkit-scrollbar {display: none;}
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
 
 /* Header styles */
 header {
@@ -77,12 +80,12 @@ header {
     z-index: 1000;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 header > div {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
 }
 
 #title {
@@ -92,15 +95,17 @@ header > div {
     white-space: nowrap;
     margin: 0 auto;
     animation: typing 0.75s steps(7, end) 1s forwards, blink-caret .75s step-end infinite;
+    cursor: pointer;
 }
 
 nav ul {
     list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
 }
 
 nav ul li a {
@@ -120,6 +125,7 @@ section {
     padding: 5%; /* Remove top and bottom padding */
     scroll-snap-align: start;
 }
+
 #home h1 {
     opacity: 0;
     font-size: 10vw;
@@ -134,7 +140,7 @@ section {
 
 #home-secondary {
     position: absolute;
-    left:0;
+    left: 0;
     top: 0;
     width: 100%;
     height: 100%;
@@ -154,6 +160,7 @@ section {
     width: 100%;
     height: 90%;
 }
+
 #code-bg p {
     font-family: monospace;
     font-size: 2em;
@@ -192,4 +199,23 @@ section {
 .scroll-down:hover {
     background-color: white;
     color: black;
+}
+
+/* Mobile styles */
+@media (max-width: 760px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: white;
+        padding: 10px;
+        position: absolute;
+        top: 10vh;
+        left: 0;
+        width: 100%;
+    }
+    
+    nav ul.visible {
+        display: flex;
+    }
 }
