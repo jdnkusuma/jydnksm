@@ -76,7 +76,7 @@ header {
     height: 10vh;
     padding: 20px;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -212,7 +212,7 @@ section {
         position: absolute;
         top: 10vh;
         left: 0;
-        width: 100%;
+        width: 100vw;
     }
     
     nav ul.visible {
